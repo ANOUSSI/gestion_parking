@@ -51,12 +51,9 @@ private ParkingRepositoryImpl repository;
 
     private String heureMj(RecordsEntity records) {
          OffsetDateTime dateMj=OffsetDateTime.parse(records.getFieldEntity().getHorogedata());
-         OffsetDateTime dateRell=dateMj.withOffsetSameInstant(ZoneOffset.of("+02:00"));
-        return dateRell.getHour()+ "h" +dateRell.getMinute();
+         OffsetDateTime dateRell=dateMj.withOffsetSameInstant(ZoneOffset.of("+02:05"));
+        return dateRell.getHour()+  "H " +dateRell.getMinute();
     }
-
-
-
 
     private String getLibeleStatut(RecordsEntity records) {
         switch (records.getFieldEntity().getStatut()){
