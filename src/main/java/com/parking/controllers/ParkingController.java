@@ -13,16 +13,15 @@ import org.yaml.snakeyaml.util.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-@Controller
+@RestController
 public class ParkingController {
     @Autowired
     private ParkingService parkingService;
-//@CrossOrigin("*")
+    @CrossOrigin("http://localhost:4200")
 @GetMapping("/api/parking")
-    public  String /*List<Parking>*/ getListParking(Model model){
-        List<Parking>  listParking=parkingService.getListParking();
-model.addAttribute("listparking",listParking);
-    return  "parking";
-    //parkingService.getListParking();
+    public  List<Parking> getListParking(){
+       // List<Parking>  listParking=parkingService.getListParking();
+//model.addAttribute("listparking",listParking);
+    return  parkingService.getListParking();
     }
 }
